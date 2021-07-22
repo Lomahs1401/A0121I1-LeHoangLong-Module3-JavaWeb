@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(94, 197, 197);
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.bolder-style {
+    background-color: grey;
+    border: 5px solid black;
+}
+
+#imgBook {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto auto;
+}
+
+.link a {
+    text-decoration: none;
+    cursor: pointer;
+}
