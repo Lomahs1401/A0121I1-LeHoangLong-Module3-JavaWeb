@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap 1</title>
+    <style>
+        h1, h2 {
+            text-align: center;
+        }
+
+        h1:hover, h2:hover {
+            color: blueviolet;
+        }
+
+        .image:hover {
+            border: 2px solid black;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .description {
+            text-align: center;
+            padding: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            float: left;
+            width: 25%;
+            padding: 0px 10px;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .container {
+                width: 50%;
+                padding: 8px 6px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .container {
+                width: 100%;
+                padding-bottom: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Web Design</h1>
+    <h2>Make the Responsive Image Gallery</h2>
+    <div class="container">
+        <div class="image">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" alt="Landscape1" width="400" height="300"/>
+            </a>
+            <div class="description">Landscape1</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" alt="Landscape1" width="400" height="300"/>
+            </a>
+            <div class="description">Landscape2</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" alt="Landscape1" width="400" height="300"/>
+            </a>
+            <div class="description">Landscape3</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Landscape_reflection_in_Dal_Lake%2C_Srinagar%2C_Kashmir%2C_India.jpg" alt="Landscape1" width="400" height="300"/>
+            </a>
+            <div class="description">Landscape4</div>
+        </div>
+    </div>
+</body>
+</html>

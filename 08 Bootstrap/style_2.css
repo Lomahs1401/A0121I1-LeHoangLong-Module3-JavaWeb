@@ -1,0 +1,42 @@
+.active {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ul li a:hover {
+    text-decoration: 2px solid black;
+}
+
+.dropdown-item:hover {
+    background-color: lightgray;
+    border: 2px dashed black;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery {
+    float: left;
+    width: 50%;
+    padding: 5px 6px;
+}
+
+.description {
+    text-align: center;
+    padding: 10px;
+    background-color: lightgrey;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1024px) {
+    .gallery {
+        width: 100%;
+        padding: 6px;
+    }
+}
+
