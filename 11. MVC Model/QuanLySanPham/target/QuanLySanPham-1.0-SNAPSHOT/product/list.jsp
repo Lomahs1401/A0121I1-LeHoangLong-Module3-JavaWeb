@@ -31,10 +31,10 @@
             padding: 0.15em 0.75em !important;
         }
         a {
-            color: black;
+            color: blue;
         }
         tbody {
-            background-color: #977ffc;
+            background-color: rgba(232, 115, 115, 0.8);
         }
         .contain {
             background-image: url("https://www.teahub.io/photos/full/188-1886823_apple-products-wallpaper-hd.jpg");
@@ -55,7 +55,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background-color: #4326be;
+            background-color: #5e0c2b;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
             opacity: 0.8;
         }
