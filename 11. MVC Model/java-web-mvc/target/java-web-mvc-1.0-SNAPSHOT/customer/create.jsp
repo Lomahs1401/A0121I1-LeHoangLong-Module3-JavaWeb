@@ -17,7 +17,6 @@
             color:green;
             font-size: 25px;
             font-weight: bold;
-
         }
         body {
             background-image: url("https://wallpaperaccess.com/full/170249.jpg");
