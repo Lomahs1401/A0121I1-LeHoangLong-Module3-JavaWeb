@@ -30,8 +30,11 @@
         a.clickButton {
             padding: 0.15em 0.75em !important;
         }
+        a {
+            color: black;
+        }
         tbody {
-            background-color: plum;
+            background-color: #977ffc;
         }
         .contain {
             background-image: url("https://www.teahub.io/photos/full/188-1886823_apple-products-wallpaper-hd.jpg");
@@ -52,7 +55,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background-color: plum;
+            background-color: #4326be;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
             opacity: 0.8;
         }
@@ -114,12 +117,12 @@
                         <td>
                             <a href="${pageContext.request.contextPath}
                             /products?action=edit&id=${product.getId()}"
-                               style="text-decoration: none;" class="btn btn-primary clickButton">Edit</a>
+                               style="text-decoration: none;" class="btn btn-info clickButton">Edit</a>
                         </td>
                         <td>
                             <a href="${pageContext.request.contextPath}
                             /products?action=delete&id=${product.getId()}"
-                               style="text-decoration: none;" class="btn btn-primary clickButton">Delete</a>
+                               style="text-decoration: none;" class="btn btn-info clickButton">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
