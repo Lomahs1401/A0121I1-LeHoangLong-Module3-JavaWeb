@@ -1,4 +1,4 @@
-package model.service;
+package model.repository;
 
 import model.beans.User;
 
@@ -9,6 +9,6 @@ public interface IUserDAO {
     void insertUser(User user) throws SQLException;
     User selectUser(int id);
     List<User> selectAllUsers();
-    boolean deleteUser(int id) throws SQLException;
-    boolean updateUser(User user) throws SQLException;
+    void deleteUser(int id) throws SQLException;
+    void updateUser(User user) throws SQLException;
 }

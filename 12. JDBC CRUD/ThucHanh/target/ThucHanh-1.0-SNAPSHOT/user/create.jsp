@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>User Management Application</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <center>
@@ -13,7 +15,7 @@
     </h2>
 </center>
 <div align="center">
-    <form method="post">
+    <form method="post" action="${pageContext.request.contextPath}/users">
         <table border="1" cellpadding="5">
             <caption>
                 <h2>Add New User</h2>

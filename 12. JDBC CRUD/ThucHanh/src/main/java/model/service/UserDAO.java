@@ -1,15 +1,13 @@
 package model.service;
 
 import model.beans.User;
+import model.repository.IUserDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO implements IUserDAO {
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "Hoanglong1401@";
 
     private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country) VALUES " +
             " (?, ?, ?);";
@@ -26,14 +24,17 @@ public class UserDAO implements IUserDAO {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
+            String jdbcUsername = "root";
+            String jdbcPassword = "Hoanglong1401@";
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (SQLException | ClassNotFoundException exception) {
+            exception.printStackTrace();
         }
         return connection;
     }
 
-
+    // Phương thức thêm một user
     @Override
     public void insertUser(User user) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
@@ -49,6 +50,7 @@ public class UserDAO implements IUserDAO {
         }
     }
 
+    // Phương thức chọn một user theo id
     @Override
     public User selectUser(int id) {
         User user = null;
@@ -74,6 +76,7 @@ public class UserDAO implements IUserDAO {
         return user;
     }
 
+    // Phương thức chọn tất cả user trong danh sách
     @Override
     public List<User> selectAllUsers() {
 
@@ -102,18 +105,19 @@ public class UserDAO implements IUserDAO {
         return users;
     }
 
+    // Phương thức xoá một user theo id
     @Override
-    public boolean deleteUser(int id) throws SQLException {
+    public void deleteUser(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
-        return rowDeleted;
     }
 
+    // Phương thức cập nhật một user
     @Override
-    public boolean updateUser(User user) throws SQLException {
+    public void updateUser(User user) throws SQLException {
         boolean rowUpdated;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
             statement.setString(1, user.getName());
@@ -123,9 +127,9 @@ public class UserDAO implements IUserDAO {
 
             rowUpdated = statement.executeUpdate() > 0;
         }
-        return rowUpdated;
     }
 
+    // Phương thức thông báo ngoại lệ Exception
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
