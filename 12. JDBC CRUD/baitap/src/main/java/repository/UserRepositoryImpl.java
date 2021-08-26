@@ -11,13 +11,12 @@ import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
 
-    public static final String INSERT_NEW_USER = "INSERT INTO users (name, email, country) VALUES (?, ?, ?);";
+    public static final String INSERT_NEW_USER = "INSERT INTO users (id, name, email, country) VALUES (?, ?, ?, ?);";
     public static final String SELECT_USER_BY_ID = "SELECT * FROM users WHERE id = ?;";
     public static final String SELECT_ALL_USERS = "SELECT * FROM users;";
     public static final String DELETE_USER = "DELETE FROM users WHERE id = ?;";
     public static final String UPDATE_USER = "UPDATE users SET name = ?, email = ?, country = ? WHERE id = ?";
     public static final String SELECT_USER_BY_COUNTRY = "SELECT * FROM users WHERE country = ?";
-    public static final String SELECT_ALL_COUNTRY = "SELECT DISTINCT country FROM users";
 
     public UserRepositoryImpl() {
     }
@@ -29,9 +28,10 @@ public class UserRepositoryImpl implements UserRepository {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(INSERT_NEW_USER);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getCountry());
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setString(2, user.getName());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getCountry());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -13,7 +13,6 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
 
     private UserRepositoryImpl repository;
-    private static int autoIncrementId = 20;
 
     @Override
     public void init() throws ServletException {
@@ -82,8 +81,9 @@ public class UserServlet extends HttpServlet {
         String userName = request.getParameter("nameUser");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
-        autoIncrementId++;
-        User user = new User(autoIncrementId, userName, email, country);
+        List<User> users = repository.selectAllUsers();
+        int id = users.get(users.size() - 1).getId() + 1;
+        User user = new User(id, userName, email, country);
         this.repository.insertUser(user);
         // Chuyển hướng về lại trang create.jsp để thông báo cho người dùng biết đã create product thành công!
         request.setAttribute("message", "Created New User Successfully!");
