@@ -14,7 +14,6 @@ import java.util.List;
 public class ProductServlet extends HttpServlet {
 
     private final ProductService productService = new ProductServiceImpl();
-    private static int id = 5;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -90,9 +89,8 @@ public class ProductServlet extends HttpServlet {
         String price = request.getParameter("price");
         String description = request.getParameter("description");
         String country = request.getParameter("country");
-
-        id++;
-
+        List<Product> products = productService.findAllProduct();
+        int id = products.get(products.size() - 1).getId() + 1;
         Product product = new Product(id, nameProduct, price, description, country);
 
         /* Lưu dữ liệu của đối tượng product qua phương thức save()
@@ -111,7 +109,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         if (product == null) {
-            request.getRequestDispatcher("error-404.jsp").forward(request, response);
+            request.getRequestDispatcher("product/error-404.jsp").forward(request, response);
         } else {
             request.setAttribute("product", product);
             request.getRequestDispatcher("product/edit.jsp").forward(request, response);
@@ -127,7 +125,7 @@ public class ProductServlet extends HttpServlet {
 
         Product product = this.productService.findById(id);
         if (product == null) {
-            request.getRequestDispatcher("error-404.jsp").forward(request, response);
+            request.getRequestDispatcher("product/error-404.jsp").forward(request, response);
         } else {
             product.setNameProduct(nameProduct);
             product.setPrice(price);
@@ -145,7 +143,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         if (product == null) {
-            request.getRequestDispatcher("error-404.jsp").forward(request, response);
+            request.getRequestDispatcher("product/error-404.jsp").forward(request, response);
         } else {
             request.setAttribute("product", product);
             request.getRequestDispatcher("product/delete.jsp").forward(request, response);
@@ -156,7 +154,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         if (product == null) {
-            request.getRequestDispatcher("error-404.jsp").forward(request, response);
+            request.getRequestDispatcher("product/error-404.jsp").forward(request, response);
         } else {
             this.productService.deleteProduct(id);
             // Chuyển hướng về lại ProductServlet
