@@ -1,6 +1,6 @@
 package model;
 
-public class User {
+public class User implements Comparable<User>{
     protected int id;
     protected String name;
     protected String email;
@@ -54,5 +54,10 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return this.getName().compareTo(user.getName());
     }
 }

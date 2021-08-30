@@ -37,6 +37,10 @@
                 <a href="${pageContext.request.contextPath}/users?action=findByCountry" class="btn-primary btn">
                     Click here to try find user by country!</a>
             </h3>
+            <h3 style="text-align: center; margin-top: 20px">
+                <a href="${pageContext.request.contextPath}/users?action=sortName" class="btn-primary btn">
+                    Click here to sort name!</a>
+            </h3>
         </div>
         <table class="table table-striped">
             <thead class="thead-dark">

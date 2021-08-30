@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
@@ -187,7 +188,34 @@ public class UserRepositoryImpl implements UserRepository {
 
     // Phương thức sắp xếp theo tên của user
     @Override
-    public void sortName() {
-
+    public List<User> sortName() {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<User> users = new ArrayList<>();
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                users.add(new User(id, name, email, country));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            try {
+                assert resultSet != null;
+                resultSet.close();
+                preparedStatement.close();
+                DBConnection.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        Collections.sort(users);
+        return users;
     }
 }

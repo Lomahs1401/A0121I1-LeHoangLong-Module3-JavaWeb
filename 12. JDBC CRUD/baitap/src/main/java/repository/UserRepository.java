@@ -17,5 +17,5 @@ public interface UserRepository {
     // tìm kiếm user theo country
     List<User> findByCountry(String country);
     // sắp xếp theo name
-    void sortName();
+    List<User> sortName();
 }

@@ -40,6 +40,8 @@ public class UserServlet extends HttpServlet {
                 break;
             case "findByCountry":
                 findCountryForm(request, response);
+            case "sortName":
+                sortName(request, response);
             default:
                 showListUsers(request, response);
         }
@@ -164,5 +166,11 @@ public class UserServlet extends HttpServlet {
         request.setAttribute("country", country);
         request.setAttribute("users", users);
         request.getRequestDispatcher("users/find-by-country.jsp").forward(request, response);
+    }
+
+    private void sortName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<User> users = repository.sortName();
+        request.setAttribute("listUsers", users);
+        request.getRequestDispatcher("users/list.jsp").forward(request, response);
     }
 }
