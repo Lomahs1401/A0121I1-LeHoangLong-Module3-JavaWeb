@@ -62,14 +62,12 @@ public class UserDAO implements IUserDAO {
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
-
             // Step 4: Process the ResultSet object.
-            while (rs.next()) {
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                user = new User(id, name, email, country);
-            }
+            rs.beforeFirst();
+            String name = rs.getString("name");
+            String email = rs.getString("email");
+            String country = rs.getString("country");
+            user = new User(id, name, email, country);
         } catch (SQLException e) {
             printSQLException(e);
         }
