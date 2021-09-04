@@ -1,4 +1,4 @@
-package model.service;
+package model.repository;
 
 import model.beans.User;
 import model.repository.IUserDAO;

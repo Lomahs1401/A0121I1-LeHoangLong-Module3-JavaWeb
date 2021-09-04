@@ -1,7 +1,7 @@
 package controller;
 
 import model.beans.User;
-import model.service.UserDAO;
+import model.repository.UserDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
